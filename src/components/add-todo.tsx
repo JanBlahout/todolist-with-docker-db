@@ -29,7 +29,11 @@ export function AddTodo() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await createTodoAction({ ...values, todoId: 'test', completed: false });
+    await createTodoAction({
+      ...values,
+      todoId: crypto.randomUUID(),
+      completed: false,
+    });
     alert('todo created');
   }
 
